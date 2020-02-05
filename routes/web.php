@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/user', 'UserController@index');
 Route::get('/test', 'TestController@index');
+Route::get('/bbs', 'BbsController@index');
