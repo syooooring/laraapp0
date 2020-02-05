@@ -19,3 +19,4 @@ Route::get('/user', 'UserController@index');
 Route::get('/test', 'TestController@index');
 Route::get('/bbs', 'BbsController@index');
 Route::post('/bbs', 'BbsController@create');
+Route::get('/', 'HomeController@index');
