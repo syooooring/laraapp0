@@ -3,6 +3,7 @@
 namespace App\Http\controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Bbs;
 
 class BbsController extends Controller
 {
@@ -24,10 +25,9 @@ class BbsController extends Controller
     $name = $request->input('name');
     $comment = $request->input('comment');
 
-    //変数をビューに渡す
-    return view('bbs.index')->with([
-      "name" => $name,
-      "comment" => $comment,
-    ]);
+    Bbs::insert(["name" => $name, "comment" => $comment]); // データベーステーブルbbsに投稿内容を入れる
+
+    $bbs = Bbs::all(); // 全データの取り出し
+    return view('bbs.index', ["bbs" => $bbs]); // bbs.indexにデータを渡す
   }
 }
